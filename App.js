@@ -26,6 +26,15 @@ export default class App extends Component {
             Touchable Highlight
           </Text>
         </TouchableHighlight>
+
+        <TouchableOpacity 
+          style={styles.btn} 
+          onPress={this.handlePress}>
+          <Text style={styles.btnText}>
+            Touchable Opacity 
+          </Text>
+        </TouchableOpacity>
+         
       </View>
     );
   }
@@ -41,6 +50,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: '#E53224',
+    marginTop: 10,
     padding: 10,
     paddingLeft: 50,
     paddingRight: 50,
