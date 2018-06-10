@@ -46,7 +46,7 @@ export function timeToString (time = Date.now()) {
   return todayUTC.toISOString().split('T')[0];
 }
 
-export function getMetricMetaInfo() {
+export function getMetricMetaInfo(metric) {
   const info = {
     run: { 
       displayName: 'Run',
@@ -139,4 +139,8 @@ export function getMetricMetaInfo() {
       }
     }, 
   };
+
+  return type metric === 'undefined' 
+    ? info 
+    : info[metric]
 }
