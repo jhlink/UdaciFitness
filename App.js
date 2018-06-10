@@ -6,56 +6,77 @@ import {
   TouchableHighlight, 
   TouchableNativeFeedback,
   TouchableOpacity,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Slider
 } from 'react-native';
 import AddEntry from './components/AddEntry';
 
+function touchableDemo () {
+  return (
+    <View style={styles.container}>
+      <TouchableHighlight 
+        style={styles.btn} 
+        onPress={this.handlePress} 
+        underlayColor='#d4271b'>
+        <Text style={styles.btnText}>
+            Touchable Highlight
+        </Text>
+      </TouchableHighlight>
+
+      <TouchableOpacity 
+        style={styles.btn} 
+        onPress={this.handlePress}>
+        <Text style={styles.btnText}>
+            Touchable Opacity 
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableWithoutFeedback 
+        onPress={this.handlePress}>
+        <View style={styles.btn}>
+          <Text style={styles.btnText}>
+            Touchable Feedback 
+          </Text>
+        </View>
+      </TouchableWithoutFeedback>
+
+      <TouchableNativeFeedback 
+        background={TouchableNativeFeedback.SelectableBackground()}>
+        <View style={styles.btn}>
+          <Text style={styles.btnText}>
+            Touchable Native Feedback 
+          </Text>
+        </View>
+      </TouchableNativeFeedback>
+         
+    </View>
+  );
+}
+
 export default class App extends Component {
+  state = {
+    value: 0
+  }
+
   handlePress = () => {
     alert('Hello!');
   }
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
 
         <AddEntry />
 
-        <TouchableHighlight 
-          style={styles.btn} 
-          onPress={this.handlePress} 
-          underlayColor='#d4271b'>
-          <Text style={styles.btnText}>
-            Touchable Highlight
-          </Text>
-        </TouchableHighlight>
+        <Slider
+          value={this.state.value}
+          onValueChange={(value) => this.setState(() => ({ value })) }
+        />
 
-        <TouchableOpacity 
-          style={styles.btn} 
-          onPress={this.handlePress}>
-          <Text style={styles.btnText}>
-            Touchable Opacity 
-          </Text>
-        </TouchableOpacity>
+        <Text>
+           Value: {this.state.value}
+        </Text>
 
-        <TouchableWithoutFeedback 
-          onPress={this.handlePress}>
-          <View style={styles.btn}>
-            <Text style={styles.btnText}>
-            Touchable Feedback 
-            </Text>
-          </View>
-        </TouchableWithoutFeedback>
-
-        <TouchableNativeFeedback 
-          background={TouchableNativeFeedback.SelectableBackground()}>
-          <View style={styles.btn}>
-            <Text style={styles.btnText}>
-            Touchable Native Feedback 
-            </Text>
-          </View>
-        </TouchableNativeFeedback>
-         
       </View>
     );
   }
