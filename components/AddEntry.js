@@ -51,7 +51,7 @@ export default class AddEntry extends Component {
     });
   }
 
-  slider = (metric, value) => {
+  slide = (metric, value) => {
     this.setState(() => ({
       [metric]: value,
     }));
