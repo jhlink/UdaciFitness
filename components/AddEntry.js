@@ -7,6 +7,8 @@ import DateHeader from './DateHeader';
 import { Ionicons } from  '@expo/vector-icons';
 import TextButton from './TextButton';
 import { submitEntry, removeEntry } from '../utils/api';
+import { connect } from 'react-redux';
+import { addEntry } from '../actions';
 
 const INIT_STATE = {
   run: 0,
@@ -67,7 +69,9 @@ export default class AddEntry extends Component {
     this.setState(INIT_STATE);
 
 
-    // Update Redux
+    this.props.dispatch(addEntry({
+      [key]: entry
+    }));
 
     // Navigate to home
 
