@@ -34,6 +34,12 @@ export default class AddEntry extends Component {
       };
     });
   }
+
+  slider = (metric, value) => {
+    this.setState(() => ({
+      [metric]: value,
+    }));
+  }
   
   render() {
     return (
