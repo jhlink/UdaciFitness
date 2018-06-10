@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { getMetricMetaInfo } from '../utils/helpers';
+import { getMetricMetaInfo, timeToString } from '../utils/helpers';
 import UdaciSlider from './UdaciSlider';
 import UdaciStepper from './UdaciStepper';
 import DateHeader from './DateHeader';
 
+const INIT_STATE = {
+  run: 0,
+  bike: 0,
+  swim: 0,
+  sleep: 0,
+  eat: 0
+};
+
+
 export default class AddEntry extends Component {
-  state = {
-    run: 0,
-    bike: 0,
-    swim: 0,
-    sleep: 0,
-    eat: 0
-  }
+  state = INIT_STATE; 
 
   increment = (metric) => {
     const { max, step } = getMetricMetaInfo(metric);
@@ -42,6 +45,22 @@ export default class AddEntry extends Component {
     this.setState(() => ({
       [metric]: value,
     }));
+  }
+
+  submit = () => {
+    const key = timeToString();
+    const entry = this.state;
+
+    this.setState(INIT_STATE);
+
+
+    // Update Redux
+
+    // Navigate to home
+
+    // Save to 'DB'
+
+    // Clear local notification
   }
   
   render() {
