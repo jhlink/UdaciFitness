@@ -44,6 +44,14 @@ export default class App extends Component {
           </View>
         </TouchableWithoutFeedback>
 
+        <TouchableNativeFeedback 
+          background={TouchableNativeFeedback.SelectableBackground()}>
+          <View style={styles.btn}>
+            <Text style={styles.btnText}>
+            Touchable Native Feedback 
+            </Text>
+          </View>
+        </TouchableNativeFeedback>
          
       </View>
     );
