@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 import { getMetricMetaInfo, timeToString } from '../utils/helpers';
 import UdaciSlider from './UdaciSlider';
 import UdaciStepper from './UdaciStepper';
@@ -12,6 +12,16 @@ const INIT_STATE = {
   sleep: 0,
   eat: 0
 };
+
+function SubmitBtn ({ onPress }) {
+  return (
+    <TouchableOpacity
+      onPress={onPress }>
+      <Text>SUBMIT</Text>    
+    </TouchableOpacity>
+  );
+}
+  
 
 
 export default class AddEntry extends Component {
@@ -94,6 +104,7 @@ export default class AddEntry extends Component {
             </View>
           );
         })}
+        <SubmitBtn onPress={this.submit}/>
       </View>
     );
   }

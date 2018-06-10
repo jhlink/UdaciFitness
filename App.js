@@ -18,6 +18,9 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+
+        <AddEntry />
+
         <TouchableHighlight 
           style={styles.btn} 
           onPress={this.handlePress} 
