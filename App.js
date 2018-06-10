@@ -4,9 +4,9 @@ import {
   View,
   StyleSheet, 
   TouchableHighlight, 
-  TouchableNativeFEedback,
+  TouchableNativeFeedback,
   TouchableOpacity,
-  ToucableWithoutFeedback
+  TouchableWithoutFeedback
 } from 'react-native';
 import AddEntry from './components/AddEntry';
 
@@ -34,6 +34,16 @@ export default class App extends Component {
             Touchable Opacity 
           </Text>
         </TouchableOpacity>
+
+        <TouchableWithoutFeedback 
+          onPress={this.handlePress}>
+          <View style={styles.btn}>
+            <Text style={styles.btnText}>
+            Touchable Feedback 
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+
          
       </View>
     );
