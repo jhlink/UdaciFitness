@@ -26,10 +26,9 @@ function SubmitBtn ({ onPress }) {
     </TouchableOpacity>
   );
 }
-  
 
 
-export default class AddEntry extends Component {
+class AddEntry extends Component {
   state = INIT_STATE; 
 
   increment = (metric) => {
@@ -144,3 +143,13 @@ export default class AddEntry extends Component {
     );
   }
 }
+
+function mapStateToProps (state) {
+  const key = timeToString();
+
+  return {
+    alreadyLogged: state[key] && typeof state[key].today ==='undefined'
+  };
+}
+
+export default connect(mapStateToProps)(AddEntry);
