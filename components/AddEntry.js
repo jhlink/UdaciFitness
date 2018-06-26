@@ -22,8 +22,9 @@ const INIT_STATE = {
 function SubmitBtn ({ onPress }) {
   return (
     <TouchableOpacity
+      style={Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.androidSubmitBtn}
       onPress={onPress }>
-      <Text>SUBMIT</Text>    
+      <Text style={styles.submitBtnText}>SUBMIT</Text>    
     </TouchableOpacity>
   );
 }
