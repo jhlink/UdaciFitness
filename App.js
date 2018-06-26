@@ -6,12 +6,16 @@ import {
   TouchableHighlight, 
   TouchableNativeFeedback,
   TouchableOpacity,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Platform
 } from 'react-native';
 import AddEntry from './components/AddEntry';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
+
+//  These commented code excerpts demonstrate how to display platform specific icons.
+//import { Ionicons } from '@expo/vector-icons';
 
 function touchableDemo () {
   return (
@@ -69,6 +73,11 @@ export default class App extends Component {
       <Provider store={createStore(reducer)}>
         <View style={{flex: 1}}>
           <AddEntry />
+          {
+            //            Platform.OS === 'ios'
+            //            ? <Ionicons name='ios-pizza' size={100} color='red' />
+            //            : <Ionicons name='md-pizza' size={100} color='red' />
+          }
         </View>
       </Provider>
     );
