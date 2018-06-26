@@ -1,8 +1,8 @@
 // utils/helpers.js
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons' ;
-import { black } from './colors';
+import { black, red, orange, blue, lightPurple, pink } from './colors';
 
 export function isBetween (num, x, y) {
   if (num >= x && num <= y) {
@@ -45,6 +45,18 @@ export function timeToString (time = Date.now()) {
   const todayUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
   return todayUTC.toISOString().split('T')[0];
 }
+
+const styles = StyleSheet.create({
+  iconContainer: {
+    padding: 5,
+    borderRadius: 8,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignContent: 'center',
+    marginRight: 20
+  }
+});
 
 export function getMetricMetaInfo(metric) {
   const info = {
