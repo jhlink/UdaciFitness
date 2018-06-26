@@ -29,7 +29,6 @@ function SubmitBtn ({ onPress }) {
   );
 }
 
-
 class AddEntry extends Component {
   state = INIT_STATE; 
 
@@ -121,7 +120,9 @@ class AddEntry extends Component {
           const value = this.state[key];
 
           return (
-            <View key={key}>
+            <View 
+              key={key}
+              style={styles.row}>
               { getIcon() }
               { type === 'slider'
                 ? <UdaciSlider
@@ -151,6 +152,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: white
+  },
+  row: {
+    flexDirection: 'row',
+    flex: 1,
+    alignItems: 'center'
   },
   iosSubmitBtn:{
     backgroundColor: purple, 
