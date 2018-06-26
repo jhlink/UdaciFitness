@@ -114,7 +114,7 @@ class AddEntry extends Component {
     }
 
     return (
-      <View> 
+      <View style={styles.container}> 
         <DateHeader date={ localDateString }/>
         {Object.keys(metaInfo).map((key) => {
           const { getIcon, type, ...rest } = metaInfo[key];
@@ -147,6 +147,11 @@ class AddEntry extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: white
+  },
   iosSubmitBtn:{
     backgroundColor: purple, 
     padding: 10,
