@@ -44,8 +44,11 @@ class History extends Component {
 
   renderEmptyDate(formattedDate) {
     return (      
-      <View>
-        <Text>No Data for this day</Text> 
+      <View style={styles.item}>
+        <DateHeader date={formattedDate}/>
+        <Text style={styles.noDataText}>
+            No Data for this day
+        </Text> 
       </View>
     );
   }
@@ -79,6 +82,11 @@ const styles = StyleSheet.create({
       width: 0,
       height: 3
     }
+  },
+  noDataText: {
+    fontSize: 20,
+    paddingTop: 20,
+    paddingBottom: 20
   }
 });
 
