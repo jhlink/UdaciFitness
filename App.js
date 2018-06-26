@@ -10,10 +10,10 @@ import {
   Platform
 } from 'react-native';
 
-import AddEntry from './components/AddEntry';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
+import AddEntry from './components/AddEntry';
 import History from './components/History';
 
 function touchableDemo () {
