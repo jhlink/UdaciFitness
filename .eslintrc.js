@@ -18,6 +18,7 @@ module.exports = {
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
+    'no-duplicate-imports': 'error',
 		'no-console': 'off' ,
     "react-native/no-unused-styles": 2,
     "react-native/split-platform-components": 2,
