@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import AddEntry from './components/AddEntry';
 import History from './components/History';
+import styled from 'styled-components/native';
 
 function touchableDemo () {
   return (
@@ -58,6 +59,13 @@ function touchableDemo () {
   );
 }
 
+const CenterView = styled.View`
+  flex: 1;
+  justify-content: center;
+  background: #333;
+`;
+// For some reason, align-items: center causes some weird problems with alignment on Android
+
 export default class App extends Component {
   state = {
     value: 0
@@ -70,35 +78,12 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={createStore(reducer)}>
-        <View style={{flex: 1}}>
+        <CenterView>
           <View style={{height: 20}} />
           <History />
-        </View>
+        </CenterView>
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginLeft: 10,
-    marginRight: 10,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  btn: {
-    backgroundColor: '#E53224',
-    marginTop: 10,
-    padding: 10,
-    paddingLeft: 50,
-    paddingRight: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-  },
-  btnText: {
-    color: '#fff'
-  }
-});
 
