@@ -8,6 +8,9 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import History from './components/History';
 import styled from 'styled-components/native';
+import { createTabNavigator } from 'react-navigation';
+import { purple, white } from './utils/colors';
+import { FontAwesome, Ionicons }  from '@expo/vector-icons'
 
 const CenterView = styled.View`
   flex: 1;
@@ -33,8 +36,6 @@ export default class App extends Component {
           <History />
         </CenterView>
       </Provider>
-    );
-  }
 }
 
 
