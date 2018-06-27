@@ -82,6 +82,7 @@ export default class App extends Component {
       <Provider store={createStore(reducer)}>
         <CenterView>
           <View style={{height: 20}} />
+          <StackNav />
         </CenterView>
       </Provider>
     );
