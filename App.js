@@ -13,7 +13,7 @@ import {
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
-import AddEntry from './components/AddEntry';
+import TabNav from './components/TabNav';
 import History from './components/History';
 import styled from 'styled-components/native';
 
@@ -80,7 +80,7 @@ export default class App extends Component {
       <Provider store={createStore(reducer)}>
         <CenterView>
           <View style={{height: 20}} />
-          <History />
+          <TabNav />
         </CenterView>
       </Provider>
     );
