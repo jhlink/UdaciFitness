@@ -5,7 +5,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { TabNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 
 function Home () {
   return (
@@ -35,7 +35,7 @@ const Goodbye = () => (
   </View>
 );
 
-const TabNav = TabNavigator({
+const TabNav = createBottomTabNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
