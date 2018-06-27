@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import { 
-  View
+  View,
+  Platform
 } from 'react-native';
 
 import { createStore } from 'redux';
@@ -11,11 +12,11 @@ import History from './components/History';
 import AddEntry from './components/AddEntry';
 
 import styled from 'styled-components/native';
-import { createTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 import { purple, white } from './utils/colors';
 import { FontAwesome, Ionicons }  from '@expo/vector-icons';
 
-const Tabs = createTabNavigator({
+const Tabs = createBottomTabNavigator({
   History: {
     screen: History,
     navigationOptions: {
@@ -31,12 +32,31 @@ const Tabs = createTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Add Entry',
       tabBarIcon: ({ tintColor }) => <FontAwesome 
-        name='ios-bookmarks' 
+        name='plus-square' 
         size={30} 
         color={tintColor} />
     }
   }
-});
+}, {
+  navigationOptions: {
+    header: null
+  },
+  tabBarOptions: {
+    activeTintColor: Platform.OS === 'ios' ? purple : white,
+    style: {
+      height: 56,
+      backgroundColor: Platform.OS === 'ios' ? white : purple,
+      shadowColor: 'rgba(0, 0, 0, 0.24)',
+      shadowOffset: {
+        width: 0,
+        height: 3
+      },
+      shadowRadius: 6,
+      shadowOpacity: 1
+    }
+  }
+}
+);
 
 const CenterView = styled.View`
   flex: 1;
@@ -59,7 +79,7 @@ export default class App extends Component {
       <Provider store={createStore(reducer)}>
         <CenterView>
           <View style={{height: 20}} />
-          <History />
+          <Tabs />
         </CenterView>
       </Provider>
     );
