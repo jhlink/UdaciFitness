@@ -6,11 +6,37 @@ import {
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
+
 import History from './components/History';
+import AddEntry from './components/AddEntry';
+
 import styled from 'styled-components/native';
 import { createTabNavigator } from 'react-navigation';
 import { purple, white } from './utils/colors';
-import { FontAwesome, Ionicons }  from '@expo/vector-icons'
+import { FontAwesome, Ionicons }  from '@expo/vector-icons';
+
+const Tabs = createTabNavigator({
+  History: {
+    screen: History,
+    navigationOptions: {
+      tabBarLabel: 'History',
+      tabBarIcon: ({ tintColor }) => <Ionicons 
+        name='ios-bookmarks' 
+        size={30} 
+        color={tintColor} />
+    }
+  },
+  AddEntry: {
+    screen: AddEntry,
+    navigationOptions: {
+      tabBarLabel: 'Add Entry',
+      tabBarIcon: ({ tintColor }) => <FontAwesome 
+        name='ios-bookmarks' 
+        size={30} 
+        color={tintColor} />
+    }
+  }
+});
 
 const CenterView = styled.View`
   flex: 1;
@@ -36,6 +62,8 @@ export default class App extends Component {
           <History />
         </CenterView>
       </Provider>
+    );
+  }
 }
 
 
