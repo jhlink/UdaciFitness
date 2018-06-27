@@ -23,6 +23,18 @@ function Dashboard () {
   );
 }
 
+const Hello = () => (
+  <View>
+    <Text>Hello!</Text>
+  </View>
+);
+
+const Goodbye = () => (
+  <View>
+    <Text>Goodbye!</Text>
+  </View>
+);
+
 const TabNav = TabNavigator({
   Home: {
     screen: Home,
