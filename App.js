@@ -13,8 +13,10 @@ import {
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
-import TabNav from './components/TabNav';
+
+import StackNav from './components/StackNav';
 import History from './components/History';
+
 import styled from 'styled-components/native';
 
 function touchableDemo () {
@@ -80,10 +82,14 @@ export default class App extends Component {
       <Provider store={createStore(reducer)}>
         <CenterView>
           <View style={{height: 20}} />
-          <TabNav />
         </CenterView>
       </Provider>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  container: {},
+  btn: {},
+  btnText: {}
+});
