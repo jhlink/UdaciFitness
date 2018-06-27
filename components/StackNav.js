@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#999999'
   },
   btn: {
     backgroundColor: '#E53224',
