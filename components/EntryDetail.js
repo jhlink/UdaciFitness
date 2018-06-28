@@ -6,6 +6,7 @@ import MetricCard from './MetricCard';
 import { addEntry } from '../actions';
 import { remoteEntry } from '../utils/api';
 import { timeToString, getDailyReminderValue } from '../utils/helpers';
+import TextButton from './TextButton';
 
 class EntryDetail extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -34,7 +35,9 @@ class EntryDetail extends Component {
     return (
       <View style={styles.container}>
         <MetricCard metrics={metrics} />
-        <Text>Entry Detail - { this.props.navigation.state.params.entryId }</Text>
+        <TextButton onPress={this.reset} style={ { margin: 20} }>
+          RESET
+        </TextButton>
       </View>
     );
   }
