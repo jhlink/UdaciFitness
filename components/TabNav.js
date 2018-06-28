@@ -3,6 +3,7 @@ import {
   Platform
 } from 'react-native';
 import AddEntry from './AddEntry';
+import History from './History';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from 'react-navigation';
 import { purple, white } from '../utils/colors';
