@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { white } from '../utils/colors';
 import MetricCard from './MetricCard';
 import { addEntry } from '../actions';
-import { remoteEntry } from '../utils/api';
+import { removeEntry } from '../utils/api';
 import { timeToString, getDailyReminderValue } from '../utils/helpers';
 import TextButton from './TextButton';
 
@@ -26,7 +26,11 @@ class EntryDetail extends Component {
 
     remove();
     goBack();
-    remoteEntry(entryId);
+    removeEntry(entryId);
+  }
+
+  shouldComponentUpdate (nextProps) {
+    return nextProps.metrics !== null && !nextProps.metrics.today;
   }
 
   render() {
@@ -73,4 +77,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect( mapStateToProps )( EntryDetail );
+export default connect( mapStateToProps, mapDispatchToProps )( EntryDetail );
