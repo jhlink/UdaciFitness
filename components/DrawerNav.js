@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { createDrawerNavigator } from 'react-navigation';
 import { white, purple } from '../utils/colors';
+import { FontAwesome } from '@expo/vector-icons'; 
 
 const Home = ({ navigation }) => ( 
   <View style={styles.container}>
@@ -36,16 +37,15 @@ const DrawerNav = createDrawerNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
-      title: 'Home'
+      drawerLabel: 'Home',
+      drawerIcon: () => <FontAwesome name='home' size={20} color='red' />
     }
   },
   Dashboard: {
     screen: Dashboard,
     navigationOptions: {
-      headerTintColor: white, 
-      headerStyle: {
-        backgroundColor: purple, 
-      }
+      drawerLabel: 'Dashboard',
+      drawerIcon: () => <FontAwesome name='dashboard' size={20} color='red' />
     }
   }
 
