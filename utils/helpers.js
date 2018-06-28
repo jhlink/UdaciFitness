@@ -159,6 +159,6 @@ export function getMetricMetaInfo(metric) {
 
 export function getDailyReminderValue() {
   return {
-    today: '::wave:: Don\'t forget to add your logs today!'
+    today: '😘 Don\'t forget to add your logs today!'
   };
 }
