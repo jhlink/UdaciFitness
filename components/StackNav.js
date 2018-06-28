@@ -31,13 +31,17 @@ const StackNav = createStackNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
-      //tabBarIcon: () => <FontAwesome name='home' size={30} color='black' /> 
+      title: 'Home'
     }
   },
   Dashboard: {
     screen: Dashboard,
     navigationOptions: {
-      //tabBarIcon: () => <FontAwesome name='dashboard' size={30} color='black' /> 
+      title: 'Dashboard',
+      headerTintColor: 'red',
+      headerStyle: {
+        backgroundColor: 'green'
+      }
     }
   }
 });
