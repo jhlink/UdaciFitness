@@ -14,8 +14,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 
-import StackNav from './components/StackNav';
-import History from './components/History';
+import DrawerNav from './components/DrawerNav';
 
 import styled from 'styled-components/native';
 
@@ -82,7 +81,7 @@ export default class App extends Component {
       <Provider store={createStore(reducer)}>
         <CenterView>
           <View style={{height: 20}} />
-          <StackNav />
+          <DrawerNav />
         </CenterView>
       </Provider>
     );
