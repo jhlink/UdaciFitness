@@ -14,7 +14,7 @@ const Home = ({ navigation }) => (
     <TouchableOpacity 
       style={styles.btn}
       onPress={() => navigation.openDrawer()}>
-      <Text style={styles.btnText}>Press here for the Dashboard</Text>
+      <Text style={styles.btnText}>Open Drawer</Text>
     </TouchableOpacity>
   </View>
 );
@@ -22,7 +22,12 @@ const Home = ({ navigation }) => (
 function Dashboard ({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>This is the Dashboard</Text>
+      <Text style={styles.btnText} >This is the Dashboard</Text>
+      <TouchableOpacity 
+        style={styles.btn}
+        onPress={() => navigation.openDrawer()}>
+        <Text style={styles.btnText}>Open Drawer</Text>
+      </TouchableOpacity>
     </View> 
   );
 }
@@ -34,7 +39,7 @@ const DrawerNav = createDrawerNavigator({
       title: 'Home'
     }
   },
-  EntryDetail: {
+  Dashboard: {
     screen: Dashboard,
     navigationOptions: {
       headerTintColor: white, 
