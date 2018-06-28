@@ -3,6 +3,9 @@ import { View, Text, StyleSheet} from 'react-native';
 import { connect } from 'react-redux';
 import { white } from '../utils/colors';
 import MetricCard from './MetricCard';
+import { addEntry } from '../actions';
+import { remoteEntry } from '../utils/api';
+import { timeToString, getDailyReminderValue } from '../utils/helpers';
 
 class EntryDetail extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,6 +19,14 @@ class EntryDetail extends Component {
       title:`${month}/${day}/${year}` 
     };
   };
+
+  reset = () => {
+    const { remove, goBack, entryId } = this.props;
+
+    remove();
+    goBack();
+    remoteEntry(entryId);
+  }
 
   render() {
     const { metrics } = this.props;
@@ -35,6 +46,19 @@ function mapStateToProps( state, { navigation }) {
   return { 
     entryId,
     metrics: state[entryId]
+  };
+}
+
+function mapDispatchToProps ( dispatch, { navigation }) {
+  const { entryId } = navigation.state.params;
+
+  return {
+    remove: () => dispatch(addEntry({
+      [entryId]: timeToString() === entryId
+        ? getDailyReminderValue()
+        : null
+    })),
+    goBack: () => navigation.goBack(), 
   };
 }
 
