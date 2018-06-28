@@ -7,6 +7,9 @@ import {
 } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { createStackNavigator } from 'react-navigation';
+import TabNav from './TabNav';
+import EntryDetail from './EntryDetail';
+import { white, purple } from '../utils/colors';
 
 const Home = ({ navigation }) => ( 
   <View style={styles.container}>
@@ -29,21 +32,21 @@ function Dashboard () {
 
 const StackNav = createStackNavigator({
   Home: {
-    screen: Home,
+    screen: TabNav,
     navigationOptions: {
       title: 'Home'
     }
   },
-  Dashboard: {
-    screen: Dashboard,
+  EntryDetail: {
+    screen: EntryDetail,
     navigationOptions: {
-      title: 'Dashboard',
-      headerTintColor: 'red',
+      headerTintColor: white, 
       headerStyle: {
-        backgroundColor: 'green'
+        backgroundColor: purple, 
       }
     }
   }
+
 });
 
 const styles = StyleSheet.create({
