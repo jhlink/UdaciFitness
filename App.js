@@ -1,14 +1,12 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 import { 
+  Text,
   View,
+  StyleSheet,
+  Image,
+  Animated,
   StatusBar
 } from 'react-native';
-
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import reducer from './reducers';
-
-import StackNav from './components/StackNav';
 
 import styled from 'styled-components/native';
 import { purple } from './utils/colors';
@@ -40,12 +38,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <Provider store={createStore(reducer)}>
-        <CenterView>
-          <UdaciStatusBar backgroundColor={ purple } barStyle='light-content'/>
-          <StackNav />
-        </CenterView>
-      </Provider>
+      <CenterView>
+        <UdaciStatusBar backgroundColor={ purple } barStyle='light-content'/>
+      </CenterView>
     );
   }
 }
