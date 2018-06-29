@@ -23,8 +23,12 @@ const StackNav = createStackNavigator({
       }
     }
   }
-
-});
+}, {
+  navigationOptions: {
+    header: null
+  }
+}
+);
 
 export default StackNav;
 
