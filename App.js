@@ -20,11 +20,11 @@ function UdaciStatusBar ({ backgroundColor, ...props }) {
   );
 }
 
-const CenterView = styled.View`
-  flex: 1;
-  justify-content: center;
-  background: #333;
-`;
+//  There are three types of animations.
+//    decay - initial velocity and slow to a stop
+//    spring - spring physics model
+//    timing - animated a value over time
+
 // For some reason, align-items: center causes some weird problems with alignment on Android
 
 export default class App extends Component {
@@ -32,17 +32,21 @@ export default class App extends Component {
     opacity: new Animated.Value(0) 
   }
 
-  
+  componentDidMount() {
+    const { opacity } = this.state;
+
+    Animated.timing(opacity, { toValue: 1, duration: 1000 } )
+      .start();
+  }
 
   render() {
     const { opacity } = this.state;
     
     return (
       <CenterView>
-        <UdaciStatusBar backgroundColor={ purple } barStyle='light-content'/>
         <Animated.Image
           style={[styles.img, { opacity }]}
-          source={{uri: 'https://typermcginnis.com/tylermcginnis_glasses-300.png' }}
+          source={{uri: 'https://tylermcginnis.com/tylermcginnis_glasses-300.png' }}
         />
       </CenterView>
     );
@@ -50,14 +54,15 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, 
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   img: {
     width: 200,
     height: 200
   }
 });
 
+const CenterView = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+`;
