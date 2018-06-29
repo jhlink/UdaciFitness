@@ -13,6 +13,7 @@ import StackNav from './components/StackNav';
 import styled from 'styled-components/native';
 import { purple } from './utils/colors';
 import { Constants } from 'expo';
+import { setLocalNotification } from './utils/helpers';
 
 function UdaciStatusBar ({ backgroundColor, ...props }) {
   return (
@@ -36,6 +37,10 @@ export default class App extends Component {
 
   handlePress = () => {
     alert('Hello!');
+  }
+
+  componentDidMount() {
+    setLocalNotification();
   }
 
   render() {
