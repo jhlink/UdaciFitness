@@ -40,9 +40,24 @@ export default class App extends Component {
     return (
       <CenterView>
         <UdaciStatusBar backgroundColor={ purple } barStyle='light-content'/>
+        <Image
+          style={styles.img}
+          source={{uri: 'https://typermcginnis.com/tylermcginnis_glasses-300.png' }}
+        />
       </CenterView>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1, 
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  img: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
 
