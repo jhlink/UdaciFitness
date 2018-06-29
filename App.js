@@ -29,23 +29,31 @@ function UdaciStatusBar ({ backgroundColor, ...props }) {
 
 export default class App extends Component {
   state = {
-    opacity: new Animated.Value(0) 
+    opacity: new Animated.Value(0),
+    width: new Animated.Value(0),
+    height: new Animated.Value(0)
   }
 
   componentDidMount() {
-    const { opacity } = this.state;
+    const { opacity, width, height } = this.state;
 
     Animated.timing(opacity, { toValue: 1, duration: 1000 } )
+      .start();
+
+    Animated.spring(width, { toValue: 300, speed: 5 } )
+      .start();
+
+    Animated.spring(height, { toValue: 300, speed: 5 } )
       .start();
   }
 
   render() {
-    const { opacity } = this.state;
+    const { opacity, width, height } = this.state;
     
     return (
       <CenterView>
         <Animated.Image
-          style={[styles.img, { opacity }]}
+          style={[styles.img, { opacity, height, width }]}
           source={{uri: 'https://tylermcginnis.com/tylermcginnis_glasses-300.png' }}
         />
       </CenterView>
