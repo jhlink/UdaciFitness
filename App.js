@@ -29,19 +29,19 @@ const CenterView = styled.View`
 
 export default class App extends Component {
   state = {
-    value: 0
+    opacity: new Animated.Value(0) 
   }
 
-  handlePress = () => {
-    alert('Hello!');
-  }
+  
 
   render() {
+    const { opacity } = this.state;
+    
     return (
       <CenterView>
         <UdaciStatusBar backgroundColor={ purple } barStyle='light-content'/>
-        <Image
-          style={styles.img}
+        <Animated.Image
+          style={[styles.img, { opacity }]}
           source={{uri: 'https://typermcginnis.com/tylermcginnis_glasses-300.png' }}
         />
       </CenterView>
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   img: {
-    alignItems: 'center',
-    justifyContent: 'center'
+    width: 200,
+    height: 200
   }
 });
 
