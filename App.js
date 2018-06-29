@@ -38,8 +38,17 @@ export default class App extends Component {
   }
 
   render() {
+    const { image } = this.state;
+
     return (
       <CenterView>
+        <TouchableOpacity onPress={this.pickImage}>
+          <Text>Open Camera Roll</Text>
+
+          {image && (
+            <Image style={styles.img} source={{uri: image}} />
+          )}
+        </TouchableOpacity>
       </CenterView>
     );
   }
