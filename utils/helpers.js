@@ -168,13 +168,13 @@ export function getDailyReminderValue() {
 
 export function clearLocalNotification() {
   return AsyncStorage.removeItem(NOTIFICATION_KEY)
-    .then( Notifications.cancelAllScheduledNotificationsAsync());
+    .then( Notifications.cancelAllScheduledNotificationsAsync);
 }
 
 function createNotification() {
   return {
-    title: 'Log your stats',
-    body: '🎶👍  don\'t forget to log your stats for today!',
+    title: 'Log your stats!',
+    body: '🎶👍  Don\'t forget to log your stats for today!',
     ios: {
       sound: true,
     },
