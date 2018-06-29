@@ -5,7 +5,7 @@
     "name": "UdaciFitness",
     "description": "The best triathlon tracker ever",
     "slug": "udacifitness",
-    "versoin": "1.0",
+    "version": "1.0",
     "icon": "https://tylermcginnis.com/udacifitness-512.png",
     "notification": {
       "icon": "https://tylermcginnis.com/udacifitness-45.png"
