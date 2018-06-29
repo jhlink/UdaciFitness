@@ -14,7 +14,7 @@ import { calculateDirection } from '../utils/helpers';
 export default class Live extends Component {
   state = {
     coords: null,
-    status: 'granted',
+    status: null,
     direction: '',
   }
 
@@ -24,6 +24,7 @@ export default class Live extends Component {
         if (status === 'granted') {
           return this.setLocation();
         }
+
         this.setState(() => ({ status }));
       })
       .catch((error) => {
@@ -32,7 +33,17 @@ export default class Live extends Component {
       });
   }
 
-  askPermission = () => {}
+  askPermission = () => {
+    Permissions.askAsync(Permissions.LOCATION)
+      .then(({ status }) => {
+        if (status === 'granted') {
+          return this.setLocation();
+        }
+
+        this.setState(() => ({ status }));
+      })
+      .catch((error) => console.warn('error asking Location permission: ', error));
+  }
   
   setLocation = () => {
     Location.watchPositionAsync({
@@ -65,6 +76,12 @@ export default class Live extends Component {
           <Text>
             You denied your location. You can fix this by visiting your settings and enabling location services for this app.
           </Text>
+          <TouchableOpacity onPress={this.askPermission}
+            style={styles.button}>
+            <Text style={styles.buttonText}>
+               Here's a shortcut! 
+            </Text>
+          </TouchableOpacity>
         </View>
       );
     }
@@ -76,7 +93,6 @@ export default class Live extends Component {
           <Text>
             You need to enable location servivces for this app.
           </Text>
-
           <TouchableOpacity onPress={this.askPermission}
             style={styles.button}>
             <Text style={styles.buttonText}>
